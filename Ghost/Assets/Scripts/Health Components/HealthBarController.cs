@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBarController : MonoBehaviour {
+    [SerializeField]
+    private GameObject bar;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void setHealthBar(float percentage)
+    {
+        float checkedPercentage = Mathf.Clamp(percentage, 0.0f, 1.0f);
+        bar.transform.localScale = new Vector3(checkedPercentage, bar.transform.localScale.y, bar.transform.localScale.z);
+    }
+
+
 }

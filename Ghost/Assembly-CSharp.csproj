@@ -53,8 +53,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CombatController.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Health Components\HealthBarController.cs" />
      <Compile Include="Assets\Scripts\HealthController.cs" />
+     <Compile Include="Assets\Scripts\KeyboardCombatInput.cs" />
+     <Compile Include="Assets\Scripts\KeyboardMovementInput.cs" />
      <Compile Include="Assets\Scripts\MovementController.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
