@@ -59,16 +59,8 @@
      <Compile Include="Assets\Scripts\HealthController.cs" />
      <Compile Include="Assets\Scripts\KeyboardCombatInput.cs" />
      <Compile Include="Assets\Scripts\KeyboardMovementInput.cs" />
+     <Compile Include="Assets\Scripts\LoadSceneOnEnter.cs" />
      <Compile Include="Assets\Scripts\MovementController.cs" />
- <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
