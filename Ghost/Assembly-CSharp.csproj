@@ -53,7 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\BulletDestroyed.cs" />
      <Compile Include="Assets\Scripts\CombatController.cs" />
+     <Compile Include="Assets\Scripts\Enermy.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Health Components\HealthBarController.cs" />
      <Compile Include="Assets\Scripts\HealthController.cs" />
@@ -61,6 +64,9 @@
      <Compile Include="Assets\Scripts\KeyboardMovementInput.cs" />
      <Compile Include="Assets\Scripts\LoadSceneOnEnter.cs" />
      <Compile Include="Assets\Scripts\MovementController.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\SoundController.cs" />
+     <Compile Include="Assets\Scripts\WeaponsController.cs" />
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
