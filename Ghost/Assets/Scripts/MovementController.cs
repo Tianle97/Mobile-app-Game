@@ -1,34 +1,37 @@
-﻿using System;
+﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class MovementController : MonoBehaviour {
-    
+public class MovementController : MonoBehaviour
+{
+
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
 
     HealthController healthController;
 
-    //Layers
+    Animator animator;
+
+    // Layers
 
     [SerializeField]
-    LayerMask groundLayersMask;
+    LayerMask groundLayerMask;
 
-    //Movement
+    // Movement
 
     public float moveVelocity;
 
     public float jumpVelocity;
-    public float doublejumpVelocity;
+    public float doubleJumpVelocity;
 
     bool onFloor;
     bool performedDoubleJump;
-    bool movementDisable;
+    bool movementDisabled;
+    
 
-    //Sprite Rendering
+    // Sprite Rendering
 
     bool facingRight;
     public bool IsFacingRight()
@@ -41,21 +44,23 @@ public class MovementController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthController = GetComponent<HealthController>();
+        animator = GetComponent<Animator>();
     }
 
-    // Use this for initialization
-    void Start () {
-        movementDisable = false;
+    void Start()
+    {
+        movementDisabled = false;
+
         facingRight = true;
-        SetIfInFloor();
-	}
 
-    // Update is called once per frame
-    void Update () {
-        SetIfInFloor();
-	}
+        SetIfOnFloor();
+    }
 
-    //create a enum
+    void Update()
+    {
+        SetIfOnFloor();
+    }
+
     public enum Direction
     {
         Left,
@@ -65,20 +70,23 @@ public class MovementController : MonoBehaviour {
 
     public void Move(Direction direction)
     {
-        if(healthController != null)
+        if (healthController != null)
         {
-            if(healthController.GetHealth() <= 0)
+            if (healthController.GetHealth() <= 0)
             {
                 return;
             }
         }
-        if(movementDisable)
+
+        if (movementDisabled)
         {
             return;
         }
-        switch(direction)
+
+        switch (direction)
         {
-            case Direction.Left: rb2d.velocity = new Vector2(-moveVelocity, rb2d.velocity.y);
+            case Direction.Left:
+                rb2d.velocity = new Vector2(-moveVelocity, rb2d.velocity.y);
                 break;
             case Direction.Right:
                 rb2d.velocity = new Vector2(moveVelocity, rb2d.velocity.y);
@@ -91,10 +99,12 @@ public class MovementController : MonoBehaviour {
         SetSpriteDirection(direction);
     }
 
-    private void SetIfInFloor()
+    void SetIfOnFloor()
     {
+
         Debug.DrawLine(transform.position, (transform.position + (Vector3.down * ((spriteRenderer.bounds.size.y / 2) + 0.1f))), Color.red, 0, false);
-        RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, (spriteRenderer.bounds.size.y / 2) + 0.1f, groundLayersMask);
+        // Debug.DrawRay(transform.position, Vector3.down, Color.red, 1, false);
+        RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, (spriteRenderer.bounds.size.y / 2) + 0.1f, groundLayerMask);
         onFloor = (floorHit.collider != null);
         if (onFloor) performedDoubleJump = false;
     }
@@ -116,9 +126,10 @@ public class MovementController : MonoBehaviour {
         else if (!performedDoubleJump)
         {
             performedDoubleJump = true;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, doublejumpVelocity);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, doubleJumpVelocity);
         }
     }
+
     public void SetSpriteDirection(Direction direction)
     {
         switch (direction)
@@ -127,17 +138,26 @@ public class MovementController : MonoBehaviour {
                 if (facingRight)
                 {
                     FlipSprite();
+                    Run();
                 }
                 break;
             case Direction.Right:
                 if (!facingRight)
                 {
                     FlipSprite();
+                    Run();
                 }
                 break;
             default:
                 break;
         }
+    }
+
+    void Run()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        animator.SetTrigger("Run");
+        animator.SetFloat("speed", Mathf.Abs(horizontal));
     }
 
     void FlipSprite()
@@ -148,7 +168,7 @@ public class MovementController : MonoBehaviour {
 
     public void Knockback(Vector3 force)
     {
-        movementDisable = true;
+        movementDisabled = true;
         StartCoroutine(EnableMovement(1));
 
         // Debug.Log (force);
@@ -158,6 +178,6 @@ public class MovementController : MonoBehaviour {
     IEnumerator EnableMovement(float time)
     {
         yield return new WaitForSeconds(time);
-        movementDisable = false;
+        movementDisabled = false;
     }
 }

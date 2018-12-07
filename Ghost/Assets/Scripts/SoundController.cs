@@ -5,16 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundController : MonoBehaviour {
 
-    //==field==
+    // == fields ==
     private AudioSource audioSource;
 
-    // == private Methods ==
+    // == private methods ==
+
     private void Start () {
         audioSource = GetComponent<AudioSource>();
 	}
-	
-    //public Methods
-    public void PlayOnShot(AudioClip clip)
+
+    // == public methods ==
+    public void PlayOneShot(AudioClip clip)
     {
         if(clip)
         {
@@ -25,12 +26,11 @@ public class SoundController : MonoBehaviour {
     public static SoundController FindSoundController()
     {
         var soundController = FindObjectOfType<SoundController>();
-        if(!soundController )
+        if (!soundController)
         {
-            Debug.LogWarning("No SoundController Found");
+            Debug.LogWarning("No Sound Controller Found, no sounds will play");
         }
         return soundController;
     }
-		
-	}
 }
+

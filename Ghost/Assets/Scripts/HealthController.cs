@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class HealthController : MonoBehaviour {
     public HealthBarController healthBarController;
 
     int health;
+
+    public Action OnCharacterDeath { get; internal set; }
+
     public int GetHealth()
     {
         return health;

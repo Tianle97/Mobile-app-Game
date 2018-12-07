@@ -8,10 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Area1.unity
-    guid: 25041ff0a6b75e14c81fc8693a9d3958
+    path: Assets/Scenes/MainMenu.unity
+    guid: 485a06614a140e644bc247895080dc1b
   - enabled: 1
     path: Assets/Scenes/FightGhost.unity
     guid: 8f299eb5752031e45b8d7e997ceb4fcf
+  - enabled: 0
+    path: Assets/Scenes/Pause.unity
+    guid: 7904fe8ca9cf78e43b524125ad0cd262
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 79b7860c0b4cb0b4686347d60c164caa
   m_configObjects: {}

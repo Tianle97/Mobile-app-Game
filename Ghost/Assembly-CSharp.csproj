@@ -53,20 +53,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Scripts\BulletDestroyed.cs" />
+     <Compile Include="Assets\Scripts\Bar.cs" />
      <Compile Include="Assets\Scripts\CombatController.cs" />
-     <Compile Include="Assets\Scripts\Enermy.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Health Components\HealthBarController.cs" />
      <Compile Include="Assets\Scripts\HealthController.cs" />
      <Compile Include="Assets\Scripts\KeyboardCombatInput.cs" />
      <Compile Include="Assets\Scripts\KeyboardMovementInput.cs" />
-     <Compile Include="Assets\Scripts\LoadSceneOnEnter.cs" />
      <Compile Include="Assets\Scripts\MovementController.cs" />
-     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\Patrol.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\Scene\MainMenuSceneController.cs" />
+     <Compile Include="Assets\Scripts\Scene\OptionsSceneController.cs" />
+     <Compile Include="Assets\Scripts\SimpleAI.cs" />
      <Compile Include="Assets\Scripts\SoundController.cs" />
-     <Compile Include="Assets\Scripts\WeaponsController.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ListUtility.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ParentUtils.cs" />
+     <Compile Include="Assets\Scripts\Utilities\SceneNames.cs" />
+     <None Include="Assets\Gothicvania Cemetery Artwork\about.txt" />
+ <Reference Include="UnityEditor.StandardEvents">
+ <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Quella/C#/unity/Ghost/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>

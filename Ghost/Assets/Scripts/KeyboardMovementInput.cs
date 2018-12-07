@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class KeyboardMovementInput : MonoBehaviour {
+[RequireComponent(typeof(MovementController))]
+public class KeyboardMovementInput : MonoBehaviour
+{
 
     MovementController movementController;
 
@@ -19,23 +20,30 @@ public class KeyboardMovementInput : MonoBehaviour {
         movementController = GetComponent<MovementController>();
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         moveLeftKey = defaultMoveLeftKey;
         moveRightKey = defaultMoveRightKey;
         jumpKey = defaultJumpKey;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
         int movement = 0;
+
         if (Input.GetKey(moveLeftKey))
             movement--;
+
         if (Input.GetKey(moveRightKey))
             movement++;
+
         switch (movement)
         {
-            case -1: movementController.Move(MovementController.Direction.Left);
+            case -1:
+                movementController.Move(MovementController.Direction.Left);
                 break;
             case 1:
                 movementController.Move(MovementController.Direction.Right);
@@ -44,9 +52,10 @@ public class KeyboardMovementInput : MonoBehaviour {
                 movementController.Move(MovementController.Direction.None);
                 break;
         }
+
         if (Input.GetKeyDown(jumpKey))
         {
             movementController.Jump();
         }
-	}
+    }
 }
